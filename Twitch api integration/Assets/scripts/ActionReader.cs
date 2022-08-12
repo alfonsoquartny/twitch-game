@@ -14,6 +14,7 @@ public class ActionReader : MonoBehaviour
     public string membersPath;
     public List<string> membersLine;
     public StreamWriter sw;
+    public string[] membersKayit;
 
 
 
@@ -22,30 +23,31 @@ public class ActionReader : MonoBehaviour
 
     private void Start()
     {
+
         path = Application.dataPath + "/playersData.txt";
 
 
         membersPath = Application.dataPath + "/members.txt";
+
         sw = new StreamWriter(membersPath);
-
-
+        var textFile = Resources.Load("members", typeof(TextAsset)) as TextAsset;
     }
     private void Update()
     {
-
+        
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            File.WriteAllText(path, "");
-            File.WriteAllText(membersPath, "");
+        
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
+            Debug.Log("saved members");
             sw.Close();
 
+            membersLine = new List<string>(System.IO.File.ReadAllLines(membersPath));
         }
-
     }
     public void OnChatMessage(string pChatter, string pMessage)
     {
@@ -57,9 +59,13 @@ public class ActionReader : MonoBehaviour
             }
             else
             {
+                dataLines = new List<string>(System.IO.File.ReadAllLines(path));
+                sw.WriteLine(pChatter);
+
+
+
                 chat.text = (pChatter);
 
-                sw.WriteLine(pChatter);
             }
 
 
