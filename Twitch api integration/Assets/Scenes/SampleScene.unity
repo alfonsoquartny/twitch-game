@@ -1090,8 +1090,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -1855,8 +1855,10 @@ MonoBehaviour:
   "oAuthInputF\u0131eld": {fileID: 591701496}
   oAuthText: {fileID: 2061334135}
   oAuthString: 
+  channelNameString: 
   buttons: {fileID: 505290837}
   informations: {fileID: 1342126306}
+  channelNameText: {fileID: 603296544}
 --- !u!1 &881282970
 GameObject:
   m_ObjectHideFlags: 0

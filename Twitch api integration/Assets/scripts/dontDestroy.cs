@@ -11,8 +11,11 @@ public class dontDestroy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   
+
+    private void OnDestroy()
     {
         DontDestroyOnLoad(this.gameObject);
+
     }
 }

@@ -10,6 +10,7 @@ public class playerInformations : MonoBehaviour
     public TMP_InputField oAuthInputFýeld;
     public TMP_Text oAuthText;
     public string oAuthString;
+    public string channelNameString;
     public GameObject buttons;
     public GameObject informations;
     public TMP_Text channelNameText;
@@ -17,13 +18,13 @@ public class playerInformations : MonoBehaviour
     {
         oAuthString = PlayerPrefs.GetString("oAuth");
 
-        oAuthInputFýeld.contentType = TMP_InputField.ContentType.Password;
+    //   oAuthInputFýeld.contentType = TMP_InputField.ContentType.Password;
     }
 
 
     public void contentTypeButton()
     {
-        if (oAuthInputFýeld.contentType == TMP_InputField.ContentType.Password)
+        /*if (oAuthInputFýeld.contentType == TMP_InputField.ContentType.Password)
         {
             oAuthInputFýeld.contentType = TMP_InputField.ContentType.Standard;
         }
@@ -32,13 +33,15 @@ public class playerInformations : MonoBehaviour
         {
             oAuthInputFýeld.contentType = TMP_InputField.ContentType.Password;
         }
+        */
     }
-  
+
 
     public void playerprefsSave()
     {
         oAuthString = oAuthText.text;
-        PlayerPrefs.SetString("channel", channelNameText.text);
+        channelNameString = channelNameText.text;
+        PlayerPrefs.SetString("channel",channelNameString);
         PlayerPrefs.SetString("oAuth", oAuthString);
         PlayerPrefs.Save();
     }

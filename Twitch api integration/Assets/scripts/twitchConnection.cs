@@ -16,12 +16,17 @@ public class twitchConnection : MonoBehaviour
     const string URL = "irc.chat.twitch.tv";
     const int PORT = 6667;
 
-    string User = "emrecds";
-    string oAuth = "oauth:e7y4kr02q9onchwd3x3izrc98yvp2l";
-    string Channel = "emrecds";
+   public string User;
+   public string oAuth;
+    public string Channel;
 
     float pingCounter;
 
+
+    private void Start()
+    {
+
+    }
     private void ConnectToTwitch()
     {
         twitch = new TcpClient(URL, PORT);
@@ -38,6 +43,11 @@ public class twitchConnection : MonoBehaviour
 
     private void Awake()
     {
+        User = PlayerPrefs.GetString("channel");
+        Channel = PlayerPrefs.GetString("channel");
+        oAuth = PlayerPrefs.GetString("oAuth");
+        Debug.Log(PlayerPrefs.GetString("channel") + "    -     " + PlayerPrefs.GetString("oAuth"));
+     
         ConnectToTwitch();
     }
     private void Update()
