@@ -14,11 +14,14 @@ public class ActionReader : MonoBehaviour
     public string membersPath;
     public List<string> membersLine;
     public StreamWriter sw;
-    public string[] membersKayit;
+    public List<string> membersKayit;
 
 
     public List<string> dataLines;
     public List<string> newPlayers;
+
+    public Transform canvas;
+
 
     private void Start()
     {
@@ -29,15 +32,18 @@ public class ActionReader : MonoBehaviour
         membersPath = Application.dataPath + "/members.txt";
         sw = new StreamWriter(membersPath);
 
-       membersLine= System.IO.File.ReadLines(membersPath).ToList();
+        membersKayit = System.IO.File.ReadLines(membersPath).ToList();
+        membersLine = System.IO.File.ReadLines(membersPath).ToList();
+
     }
-  
+
     private void Update()
     {
         
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-        
+            PlayerPrefs.DeleteAll();
+            Debug.Log("VERILER SILINDI");
         }
 
 
@@ -53,9 +59,10 @@ public class ActionReader : MonoBehaviour
     {
         if (pMessage.Contains("!"))
         {
-            if (membersLine.Contains(pChatter))
+            if (PlayerPrefs.GetString(pChatter) == pChatter)
             {
-                Debug.Log("Zaten Katýldýn!");
+                Debug.Log("Zaten Katýldýn!   "+pChatter);
+            
             }
             else
             {
@@ -63,8 +70,10 @@ public class ActionReader : MonoBehaviour
                 sw.WriteLine(pChatter);
 
 
-
-                chat.text = (pChatter);
+                var newPlayerNick = Instantiate(chat);
+                newPlayerNick.transform.SetParent(canvas);
+                newPlayerNick.text = pChatter;
+                PlayerPrefs.SetString(pChatter, pChatter);
 
             }
 
