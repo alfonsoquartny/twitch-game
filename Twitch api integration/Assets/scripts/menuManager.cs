@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class menuManager : MonoBehaviour
 {
-
+    public playerInformations informations;
     void Start()
     {
         
