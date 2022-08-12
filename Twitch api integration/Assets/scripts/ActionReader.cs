@@ -17,7 +17,6 @@ public class ActionReader : MonoBehaviour
     public string[] membersKayit;
 
 
-
     public List<string> dataLines;
     public List<string> newPlayers;
 
@@ -28,10 +27,11 @@ public class ActionReader : MonoBehaviour
 
 
         membersPath = Application.dataPath + "/members.txt";
-
         sw = new StreamWriter(membersPath);
-        var textFile = Resources.Load("members", typeof(TextAsset)) as TextAsset;
+
+       membersLine= System.IO.File.ReadLines(membersPath).ToList();
     }
+  
     private void Update()
     {
         
