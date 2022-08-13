@@ -40,7 +40,7 @@ public class ActionReader : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerPrefs.DeleteAll();
             Debug.Log("VERILER SILINDI");
