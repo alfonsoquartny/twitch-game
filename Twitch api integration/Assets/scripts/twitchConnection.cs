@@ -16,7 +16,7 @@ public class twitchConnection : MonoBehaviour
     const string URL = "irc.chat.twitch.tv";
     const int PORT = 6667;
 
-    string User = "emrecds";
+    string User = "alfonso_quartny";
     string oAuth = "oauth:e7y4kr02q9onchwd3x3izrc98yvp2l";
     string Channel = "emrecds";
 

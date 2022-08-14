@@ -41,7 +41,7 @@ public class ActionReader : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             PlayerPrefs.DeleteAll();
             Debug.Log("VERILER SILINDI");
