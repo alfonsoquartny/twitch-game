@@ -16,6 +16,7 @@ public class ActionReader : MonoBehaviour
     public StreamWriter sw;
     public List<string> membersKayit;
 
+    public movement movement;
 
     public List<string> dataLines;
     public List<string> newPlayers;
@@ -40,7 +41,7 @@ public class ActionReader : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             PlayerPrefs.DeleteAll();
             Debug.Log("VERILER SILINDI");
@@ -57,7 +58,7 @@ public class ActionReader : MonoBehaviour
     }
     public void OnChatMessage(string pChatter, string pMessage)
     {
-        if (pMessage.Contains("!"))
+        if (pMessage.Contains("!kayit"))
         {
             if (PlayerPrefs.GetString(pChatter) == pChatter)
             {
@@ -82,6 +83,11 @@ public class ActionReader : MonoBehaviour
             // DataLines = File.ReadAllLines(Data).ToList();
 
 
+        }
+
+        if (pMessage.Contains("!jump"))
+        {
+            movement.Jump();
         }
 
     }
