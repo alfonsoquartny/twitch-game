@@ -38,7 +38,7 @@ public class playerInformations : MonoBehaviour
 
     public void playerprefsSave()
     {
-        PlayerPrefs.SetString("channel",channelNameText.text);
+        PlayerPrefs.SetString("channel",channelNameText.text+" ");
         PlayerPrefs.Save();
     }
 
