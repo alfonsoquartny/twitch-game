@@ -16,9 +16,9 @@ public class twitchConnection : MonoBehaviour
     const string URL = "irc.chat.twitch.tv";
     const int PORT = 6667;
 
-    string User = "alfonso_quartny";
-    string oAuth = "oauth:e7y4kr02q9onchwd3x3izrc98yvp2l";
-    string Channel = "emrecds";
+    string User = "User";
+    string oAuth = "oauth:vdo6i1zt5veug2ht2l34gxe04d4sf8";
+   
 
     float pingCounter;
 
@@ -30,7 +30,7 @@ public class twitchConnection : MonoBehaviour
 
         writer.WriteLine("PASS " + oAuth);
         writer.WriteLine("NICK " + User.ToLower());
-        writer.WriteLine("JOIN #" + Channel.ToLower());
+        writer.WriteLine("JOIN #" + PlayerPrefs.GetString("channel").ToLower());
         writer.Flush();
 
     }
@@ -42,6 +42,8 @@ public class twitchConnection : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(PlayerPrefs.GetString("channel"));
+
         pingCounter += Time.deltaTime;
         if (pingCounter > 60)
         {

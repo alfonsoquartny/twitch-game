@@ -12,6 +12,7 @@ public class playerInformations : MonoBehaviour
     public TMP_Text channelNameText;
     void Start()
     {
+
        /* oAuthString = PlayerPrefs.GetString("oAuth");
 
         oAuthInputFýeld.contentType = TMP_InputField.ContentType.Password;
@@ -37,7 +38,7 @@ public class playerInformations : MonoBehaviour
 
     public void playerprefsSave()
     {
-        PlayerPrefs.SetString("channel", channelNameText.text);
+        PlayerPrefs.SetString("channel",channelNameText.text);
         PlayerPrefs.Save();
     }
 
