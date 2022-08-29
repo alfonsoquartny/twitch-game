@@ -42,6 +42,7 @@ public class twitchConnection : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(PlayerPrefs.GetString("channel"));
 
         pingCounter += Time.deltaTime;
         if (pingCounter > 60)
