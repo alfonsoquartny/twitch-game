@@ -23,7 +23,7 @@ public class ActionReader : MonoBehaviour
 
     public Transform canvas;
 
-    public string[] komutlar;
+
     private void Start()
     {
 
@@ -85,19 +85,9 @@ public class ActionReader : MonoBehaviour
 
         }
 
-        if (pMessage.Contains(komutlar[0]))
+        if (pMessage.Contains("!jump"))
         {
-            if (PlayerPrefs.GetString(pChatter) == komutlar[0])
-            {
-                Debug.Log("Zaten " + komutlar[0]+"Yazdýn @" + pChatter);
-
-            }
-            else
-            {
-                movement.Jump();
-                PlayerPrefs.SetString(pChatter, komutlar[0]);
-
-            }
+            movement.Jump();
         }
 
     }
