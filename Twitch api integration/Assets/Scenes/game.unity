@@ -603,6 +603,8 @@ MonoBehaviour:
   - 
   newPlayers: []
   canvas: {fileID: 1513901785}
+  komutlar:
+  - '!jump'
 --- !u!4 &1491131827
 Transform:
   m_ObjectHideFlags: 0
