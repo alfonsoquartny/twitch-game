@@ -23,6 +23,8 @@ public class ActionReader : MonoBehaviour
 
     public Transform canvas;
 
+    public string[] players;
+    public int playerNumber;
 
     private void Start()
     {
@@ -70,7 +72,16 @@ public class ActionReader : MonoBehaviour
                 dataLines = new List<string>(System.IO.File.ReadAllLines(path));
                 sw.WriteLine(pChatter);
 
+                if (players[playerNumber] == "")
+                {
+                    players[playerNumber] = pChatter;
+                    playerNumber = playerNumber + 1;
 
+                }
+                else
+                {
+                    Debug.Log("KAYDINIZ ZATEN YAPILDI!");
+                }
                 var newPlayerNick = Instantiate(chat);
                 newPlayerNick.transform.SetParent(canvas);
                 newPlayerNick.text = pChatter;
