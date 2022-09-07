@@ -60,7 +60,7 @@ public class ActionReader : MonoBehaviour
     }
     public void OnChatMessage(string pChatter, string pMessage)
     {
-        if (pMessage.Contains("!kayit"))
+        if (pMessage.Contains("!join"))
         {
             if (PlayerPrefs.GetString(pChatter) == pChatter)
             {
