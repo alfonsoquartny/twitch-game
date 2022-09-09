@@ -108,15 +108,10 @@ public class ActionReader : MonoBehaviour
 
     public void cekilis()
     {
-        if (cekilen ==null)
-        {
-            string name = players[Random.Range(0,int.MaxValue)];
-        }
-        else
-        {
-            Debug.Log(cekilen);
+      
+            string name = players[Random.Range(1,players.Count)];
+            Debug.Log(name);
 
-        }
 
     }
 
