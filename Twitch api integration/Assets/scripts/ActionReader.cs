@@ -36,8 +36,9 @@ public class ActionReader : MonoBehaviour
         membersPath = Application.dataPath + "/members.txt";
         sw = new StreamWriter(membersPath);
 
-        membersKayit = System.IO.File.ReadLines(membersPath).ToList();
+       /* membersKayit = System.IO.File.ReadLines(membersPath).ToList();
         membersLine = System.IO.File.ReadLines(membersPath).ToList();
+       */
 
     }
 
@@ -74,16 +75,9 @@ public class ActionReader : MonoBehaviour
                 dataLines = new List<string>(System.IO.File.ReadAllLines(path));
                 sw.WriteLine(pChatter);
                 List<string> playerss = new List<string>();
-                if (players[playerNumber] == "")
-                {
+                
                     players.Add(pChatter);
-                    playerNumber = playerNumber + 1;
-                 
-                }
-                else
-                {
-                    Debug.Log("KAYDINIZ ZATEN YAPILDI!");
-                }
+            
                 var newPlayerNick = Instantiate(chat);
                 newPlayerNick.transform.SetParent(canvas);
                 newPlayerNick.text = pChatter;
