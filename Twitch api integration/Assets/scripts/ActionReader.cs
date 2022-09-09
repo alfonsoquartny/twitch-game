@@ -23,8 +23,9 @@ public class ActionReader : MonoBehaviour
 
     public Transform canvas;
 
-    public string[] players;
+    public List<string> players;
     public int playerNumber;
+    public string cekilen;
 
     private void Start()
     {
@@ -58,6 +59,7 @@ public class ActionReader : MonoBehaviour
             membersLine = new List<string>(System.IO.File.ReadAllLines(membersPath));
         }
     }
+
     public void OnChatMessage(string pChatter, string pMessage)
     {
         if (pMessage.Contains("!join"))
@@ -71,12 +73,12 @@ public class ActionReader : MonoBehaviour
             {
                 dataLines = new List<string>(System.IO.File.ReadAllLines(path));
                 sw.WriteLine(pChatter);
-
+                List<string> playerss = new List<string>();
                 if (players[playerNumber] == "")
                 {
-                    players[playerNumber] = pChatter;
+                    players.Add(pChatter);
                     playerNumber = playerNumber + 1;
-
+                 
                 }
                 else
                 {
@@ -96,9 +98,24 @@ public class ActionReader : MonoBehaviour
 
         }
 
+
         if (pMessage.Contains("!jump"))
         {
             movement.Jump();
+        }
+
+    }
+
+    public void cekilis()
+    {
+        if (cekilen ==null)
+        {
+            string name = players[Random.Range(0,int.MaxValue)];
+        }
+        else
+        {
+            Debug.Log(cekilen);
+
         }
 
     }
