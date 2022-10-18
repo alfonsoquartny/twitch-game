@@ -5,10 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using System.IO;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.Events;
 public class ActionReader : MonoBehaviour
 {
     public TMP_Text chat;
-
 
     public string path;
     public string membersPath;
@@ -27,6 +29,13 @@ public class ActionReader : MonoBehaviour
     public int playerNumber;
     public string cekilen;
 
+    public ayz ayz;
+    public UnityEvent<string, string>cevapEvent;
+
+
+
+    public string cekilenKisi;
+    public string CekilenKisiCevap;
     private void Start()
     {
 
@@ -51,7 +60,7 @@ public class ActionReader : MonoBehaviour
             Debug.Log("VERILER SILINDI");
         }
 
-
+        /*
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             Debug.Log("saved members");
@@ -59,8 +68,12 @@ public class ActionReader : MonoBehaviour
 
             membersLine = new List<string>(System.IO.File.ReadAllLines(membersPath));
         }
+      */
+
+
     }
 
+    
     public void OnChatMessage(string pChatter, string pMessage)
     {
         if (pMessage.Contains("!join"))
@@ -85,7 +98,7 @@ public class ActionReader : MonoBehaviour
 
             }
 
-
+           
 
             // DataLines = File.ReadAllLines(Data).ToList();
 
@@ -98,13 +111,21 @@ public class ActionReader : MonoBehaviour
             movement.Jump();
         }
 
+        if (PlayerPrefs.GetInt(name) == 1)
+        {
+            string cevap = name + pMessage;
+        }
+
+
     }
 
     public void cekilis()
     {
       
-            string name = players[Random.Range(1,players.Count)];
-            Debug.Log(name);
+           var RANDOMkisi = players[Random.Range(1,players.Count)];
+
+        cevapEvent?.Invoke(cekilenKisi, CekilenKisiCevap);
+        PlayerPrefs.SetInt(name, 1);
 
 
     }
