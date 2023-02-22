@@ -1,2 +1,3 @@
 # twitch-game
-twitch game of emrecds
+
+i am learning how to use twith api in the this project.
